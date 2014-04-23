@@ -1,4 +1,4 @@
-// Generated on 2014-04-22 using generator-angular-jade-stylus 0.8.5
+// Generated on 2014-04-23 using generator-angular-jade-stylus 0.8.5
 'use strict';
 
 // # Globbing
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         tasks: ['newer:coffee:test', 'karma']
       },
       stylus: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.styl'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.{styl}'],
         tasks: ['stylus:server', 'autoprefixer']
       },
       jade: {
@@ -70,7 +70,7 @@ module.exports = function (grunt) {
           compress: false
         },
         files: {
-          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/main.styl']
+          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/{,*/}*.styl']
         }
       },
       server: {
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
           compress: false
         },
         files: {
-          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/main.styl']
+          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/{,*/}*.styl']
         }
       },
       dist: {
@@ -86,7 +86,7 @@ module.exports = function (grunt) {
           compress: true
         },
         files: {
-          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/main.styl']
+          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/{,*/}*.styl']
         }
       }
     },
@@ -371,6 +371,11 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        },{
+          expand: true,
+          cwd: '.tmp/concat/scripts',
+          dest: '<%= yeoman.dist %>/scripts',
+          src: ['{,*/}*.js']
         }]
       },
       styles: {
@@ -475,10 +480,10 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
-    'cdnify',
+    // 'cdnify',
     'cssmin',
-    'uglify',
-    'rev',
+    // 'uglify',
+    // 'rev',
     'usemin',
     'htmlmin'
   ]);

@@ -1,10 +1,19 @@
 'use strict'
 
-angular.module('flashCardApp')
-	.controller 'StartController', ($scope, $http, $cookieStore) ->
-		$scope.autoNext = $cookieStore.get('autoNext')
-		$scope.nextDelay = $cookieStore.get('nextDelay')
-		$scope.shuffle = $cookieStore.get('shuffle')
+angular.module('App')
+	.controller 'StartController', ($scope, $http, $cookieStore, $cookies, $timeout)->
+
+		$timeout ()->
+			if !$cookies.setup
+				$cookieStore.put('nextDelay', 1000)
+				$cookieStore.put('autoNext', true)
+				$cookieStore.put('shuffle', false)
+				$cookies.setup = true
+
+			$scope.$apply ()->
+				$scope.autoNext = $cookieStore.get('autoNext')
+				$scope.nextDelay = $cookieStore.get('nextDelay')
+				$scope.shuffle = $cookieStore.get('shuffle')
 
 		$http.get('./datas/lessons.json', {}).then((res)->
 			$scope.lessons = res.data.lessons

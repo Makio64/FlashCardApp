@@ -1,7 +1,7 @@
 'use strict'
 
-angular.module('flashCardApp')
-	.controller 'CardController', ($scope,$http,$routeParams,$location,$cookieStore,$timeout) ->
+angular.module('App')
+	.controller 'CardController',($scope,$http,$routeParams,$location,$cookieStore,$timeout)->
 
 		$scope.shuffle = $cookieStore.get('shuffle')
 		$scope.autoNext = $cookieStore.get('autoNext')
@@ -61,7 +61,7 @@ angular.module('flashCardApp')
 				$scope.answerReveal = true
 				audio = document.createElement('audio');
 				words = encodeURIComponent(String($scope.words[$scope.getKeys($scope.words)[$scope.currentId]]))
-				audio.setAttribute('src', 'http://www.translate.google.com/translate_tts?tl=fr&q=' + words);
+				audio.setAttribute('src', './php/voice.php?q=' + words + '&tl=fr');
 				audio.load();
 				audio.play();
 
