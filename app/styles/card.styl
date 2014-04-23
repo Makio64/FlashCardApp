@@ -1,0 +1,64 @@
+@import 'nib'
+
+#cards
+	
+	width 100%
+	height 100%
+	min-height 100%
+
+	li
+		width 100%
+		height 100%
+		min-height 100%
+		position absolute
+		top 20px
+		left 20px
+		opacity 0
+		visibility hidden
+		transition-property transform, opacity,  visibility
+		transition-duration .3s
+		transform translate3d(0,0,0)
+		font-size 90px
+		color #504f4f
+		text-align center
+		text-shadow 0px 2px 1px #bbbaba
+
+		&.active
+			opacity 1
+			visibility visible
+
+		.word, .translation, .answer
+			height 40%
+			padding 40px 0
+			line-height 100%
+			display table
+			margin auto
+
+			span 
+				display table-cell
+				vertical-align middle
+				text-align center
+
+		.translation, .answer
+			top 40%
+			position absolute
+			width 100%
+
+		div
+			transition-property opacity,  transform, visibility
+			transition-duration .6s
+
+		&.left
+			transform translate3d(200px,0,0)
+			opacity 0
+			visibility hidden
+
+		&.right
+			transform translate3d(-200px,0,0)
+			opacity 0
+			visibility hidden
+			
+		.hide 
+			visibility hidden
+			opacity 0
+			transform scale(0.9,0.9)

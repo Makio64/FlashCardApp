@@ -1,0 +1,9 @@
+div#cards(ng-click="onClick()")
+	ul
+		li(ng-repeat="word in notSorted(words)" ng-init="translation = words[word]" ng-class="{active : currentId==$index, left : currentId<$index, right : currentId>$index}")
+			div.word 
+				span {{word}}
+			div.answer(ng-class="{hide : answerReveal}") 
+				span ?
+			div.translation(ng-class="{hide : !answerReveal}") 
+				span {{translation}}

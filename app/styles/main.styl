@@ -1,0 +1,41 @@
+@import 'nib'
+
+global-reset()
+html5-reset()
+
+html, body
+	width 100%
+	height 100%
+	min-height 100%
+	overflow hidden
+	font-family 'Lato', 'sans-serif'
+	font-weight 400
+	
+div[ng-view]
+	position absolute
+	top 0
+	left 0
+
+	transform translate3d(0,0,0)
+	opacity 1
+
+	width 100%
+	height 100%
+	min-height 100%
+
+	transition-property opacity, transform
+	transition-duration .5s
+
+div[ng-view]
+	&.ng-enter, &.ng-leave.ng-leave-active
+		opacity 0
+		transform translate3d(0,-40px,0)
+	&.ng-leave, &.ng-enter.ng-enter-active
+		opacity 1
+		transform translate3d(0,0,0)
+	&.ng-enter
+		transform translate3d(0,40px,0)
+		transition-delay .3s
+
+@import 'card.styl'
+@import 'start.styl'

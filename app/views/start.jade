@@ -1,0 +1,12 @@
+div#start
+	label Select a lesson :
+	select(ng-model="lesson" ng-options="l.name for l in lessons")
+	a.start( ng-href="#/Cards/{{lesson.id}}" ng-click="saveCookies()") START
+	a.option OPTIONS
+	div.options
+		label Shuffle cards
+		input(type="checkbox" ng-model="shuffle" ng-change="saveCookies()")
+		label Auto next
+		input(type="checkbox" ng-model="autoNext" ng-change="saveCookies()")
+		label Next delay (ms)
+		input(type="number" ng-disabled="!autoNext" ng-model="nextDelay" ng-change="saveCookies()")
