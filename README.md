@@ -9,6 +9,9 @@ Options:
 - Shuffle cards
 - Next card come automatically after a delay
 
+## Demo
+http://makiopolis.com/flashcards/
+
 ## Getting started
 
 Just type this commands:
@@ -34,5 +37,5 @@ grunt build
 - Jade | http://jade-lang.com/
 - Google translate | http://www.translate.google.com/
 
-##0.1:
+## Version 0.1:
 - initial version
