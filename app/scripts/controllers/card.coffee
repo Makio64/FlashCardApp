@@ -57,13 +57,19 @@ angular.module('App')
 			else
 				if($scope.autoNext)
 					$scope.startTimer()
-
 				$scope.answerReveal = true
-				audio = document.createElement('audio');
+
 				words = encodeURIComponent(String($scope.words[$scope.getKeys($scope.words)[$scope.currentId]]))
-				audio.setAttribute('src', './php/voice.php?q=' + words + '&tl=fr');
-				audio.load();
-				audio.play();
+				url   = './php/voice.php?q=' + words + '&tl=fr'
+				sound = new Howl(
+					urls: [url]
+					autoplay: true
+					loop: false
+					volume: 1.0
+					buffer: true
+					format: 'mp3'
+				).play()
+				console.log sound
 
 			return
 
