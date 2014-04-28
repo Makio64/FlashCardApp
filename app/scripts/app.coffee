@@ -8,6 +8,10 @@ app = angular.module('App', [
 		'ngAnimate'
 	])
 
+app.path = 
+	host:'http://makiopolis.com/flashcards/'
+	service:'http://makiopolis.com/flashcards/php/'
+
 app.config ($routeProvider)->
 	$routeProvider
 		.when '/',
