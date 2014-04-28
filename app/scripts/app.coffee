@@ -16,6 +16,9 @@ app.config ($routeProvider)->
 		.when '/Cards/:cardsId',
 			templateUrl: 'views/card.html',
 			controller: 'CardController',
+		.when '/lesson/add',
+			templateUrl: 'views/lesson.html'
+			controller: 'LessonController'
 		.otherwise
 			redirectTo: '/'
 		return

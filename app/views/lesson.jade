@@ -1,0 +1,21 @@
+div#lesson 
+	h1 ADD LESSON
+	label name:
+	input(ng-model='lesson.name' placeholder='Lesson name')
+	label description:
+	input(class='description' ng-model='lesson.description' placeholder='Describe shortly and nicelly the lesson :)')
+	div.add
+		label.inline Add a supported language
+		select.inline(ng-model='selected' ng-options='name for (name, value) in lang')
+		a(ng-click='addColumns') ADD
+	div.content
+		div.rows
+			ul.title
+				li(ng-repeat='lang in selectedLanguage') {{lang}}
+			ul.words
+				li(ng-repeat='word in words track by $index' ng-click='selected=$index')
+					ul.word
+						li(ng-repeat="(key, value) in word track by $index")
+							{{value}}
+
+	a.create(ng-click='addLesson') Create the lesson

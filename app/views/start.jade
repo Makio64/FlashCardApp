@@ -10,3 +10,4 @@ div#start
 		input(type="checkbox" ng-model="autoNext" ng-change="saveCookies()")
 		label Next delay (ms)
 		input(type="number" ng-disabled="!autoNext" ng-model="nextDelay" ng-change="saveCookies()")
+	a.start( ng-href="#/lesson/add/" ng-click="saveCookies()") Add a lesson

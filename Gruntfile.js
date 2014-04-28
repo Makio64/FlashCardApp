@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         tasks: ['newer:coffee:test', 'karma']
       },
       stylus: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{styl}'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.styl'],
         tasks: ['stylus:server', 'autoprefixer']
       },
       jade: {
