@@ -6,12 +6,20 @@ angular.module('App')
 		$scope.shuffle = $cookieStore.get('shuffle')
 		$scope.autoNext = $cookieStore.get('autoNext')
 		$scope.nextDelay = $cookieStore.get('nextDelay')
+		$scope.order = $cookieStore.get('order')
 
 		$http.get('./datas/lessons.json', {}).then((res)->
 			$scope.words = res.data.lessons
 			$scope.words = res.data.lessons[$routeParams.cardsId-1].words
 			if $scope.shuffle
 				$scope.words = $scope.shuffleProperties($scope.words)
+			if $scope.order == 'Inverted'
+				$scope.words = $scope.exchangeKeyValue($scope.words)
+			else if $scope.order == 'Random'
+				$scope.words = $scope.randomizeKeyValue($scope.words)
+			
+			console.log $scope.order
+			
 			$scope.total = $scope.count(res.data.lessons[$routeParams.cardsId-1].words)
 		)
 
@@ -69,9 +77,28 @@ angular.module('App')
 					buffer: true
 					format: 'mp3'
 				).play()
-				console.log sound
+				# console.log sound
 
 			return
+
+		$scope.randomizeKeyValue = (obj,percent=.5) ->
+			console.log 'randomizeKeyValue'
+			newObj = {}
+			for key of obj
+				if Math.random()>percent 
+					#invert
+					newObj[String(obj[key])] = key
+				else 
+					#copy
+					newObj[String(key)]=String(obj[key])
+
+			return newObj
+			
+
+		$scope.exchangeKeyValue = (obj) ->
+			console.log 'exchangeKeyValue'
+			return $scope.randomizeKeyValue(obj,0)
+
 
 		$scope.shuffleProperties = (obj) ->
 			newObj = {}
@@ -80,9 +107,7 @@ angular.module('App')
 				Math.round(Math.random())-0.5
 			);
 			for key of keys
-				console.log key,keys[key],obj[keys[key]]
 				newObj[String(keys[key])] = obj[keys[key]]
-			console.log newObj
 			return newObj
 
 		$scope.getKeys = (obj) ->

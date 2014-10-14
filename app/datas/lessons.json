@@ -37,6 +37,43 @@
                 "You love me":"tu m'aimes",
                 "I am strong":"Je suis forte"
             }
+        },
+        {
+            "id": "3",
+            "name": "Base vocabulary JP->FR",
+            "words": {
+                "taberu":"manger",
+                "nomu":"boire",
+                "wakuwaku":"éxcité",
+                "kofun":"éxcité sexuellement",
+                "neru":"dormir",
+                "hashi":"baguette",
+                "ichi nen":"une année",
+                "sara":"assiette",
+                "boru":"bole",
+                "terebi":"television",
+                "e":"peinture",
+                "miru":"regarder",
+                "iku":"aller",
+                "ha":"dent",
+                "arau":"laver",
+                "kite":"venir",
+                "jozu":"bon a",
+                "oishi":"delicieux",
+                "denwa":"téléphone",
+                "keitai":"mobile",
+                "megane":"lunette",
+                "kisu":"embrasser",
+                "eiga":"film",
+                "watashitashi":"nous",
+                "ima":"maintenant",
+                "ashi":"pied",
+                "oshiri":"fesse",
+                "ecchi":"sexe",
+                "tomodachi":"amis",
+                "okuru":"envoyer",
+                "ashikubi":"oncle"
+            }
         }
     ]
 }
